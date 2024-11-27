@@ -1,0 +1,51 @@
+.hero {
+  width: 100vw;
+  height: 100vh;
+  background-image: url('../../img/bg.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 260px 0 0 64px;
+  margin: 0 auto;
+}
+
+.title {
+  color: var(--inputs);
+  font-family: Inter;
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 0.66;
+  margin-bottom: 16px;
+}
+
+.text {
+  color: var(--inputs);
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.33;
+  margin-bottom: 40px;
+}
+
+.btn {
+  display: flex;
+  padding: 16px 60px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: var(--button);
+  color: var(--white);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  letter-spacing: -0.05em;
+}
+
+.btn:hover,
+.btn:focus {
+  background: var(--button-hover);
+}

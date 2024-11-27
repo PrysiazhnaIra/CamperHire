@@ -1,0 +1,44 @@
+.block {
+  display: flex;
+  width: 1440px;
+  padding: 24px 64px;
+  align-items: center;
+  gap: 450px;
+  border-bottom: 1px solid var(--badges);
+  background: var(--inputs);
+}
+
+.blockLinks {
+  display: flex;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+.link {
+  color: var(--main);
+  text-align: center;
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 1.5;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.active {
+  color: var(--button-hover);
+}
+
+.link:hover,
+.link:focus {
+  color: var(--button-hover);
+  transform: scale(1.05);
+}
+
+.linkLogo {
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+.linkLogo:hover,
+.linkLogo:focus {
+  transform: scale(1.05);
+}
