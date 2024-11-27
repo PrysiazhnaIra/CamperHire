@@ -1,7 +1,9 @@
+import Header from '../Header/Header.jsx';
+
 export default function CamperDetails() {
   return (
     <>
-      <p>Details about one camper</p>
+      <Header />
     </>
   );
 }
