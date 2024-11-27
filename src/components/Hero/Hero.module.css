@@ -43,9 +43,11 @@
   font-weight: 500;
   line-height: 1.5;
   letter-spacing: -0.05em;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
 .btn:hover,
 .btn:focus {
   background: var(--button-hover);
+  transform: scale(1.05);
 }

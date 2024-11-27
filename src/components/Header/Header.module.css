@@ -1,6 +1,9 @@
 .block {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
   display: flex;
-  width: 1440px;
   padding: 24px 64px;
   align-items: center;
   gap: 450px;
