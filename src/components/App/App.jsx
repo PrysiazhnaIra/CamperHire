@@ -1,12 +1,19 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
-import React, { Suspense } from 'react';
-import HomePage from '../../pages/HomePage/HomePage.jsx';
-import NotFoundPage from '../../pages/NotFoundPage/NotFoundPage.jsx';
-import CatalogPage from '../../pages/CatalogPage/CatalogPage.jsx';
-import CamperDetailsPage from '../../pages/CamperDetailsPage/CamperDetailsPage.jsx';
-import Features from '../Features/Features.jsx';
-import Reviews from '../Reviews/Reviews.jsx';
+import { lazy, Suspense } from 'react';
+
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
+const NotFoundPage = lazy(() =>
+  import('../../pages/NotFoundPage/NotFoundPage.jsx')
+);
+const CatalogPage = lazy(() =>
+  import('../../pages/CatalogPage/CatalogPage.jsx')
+);
+const CamperDetailsPage = lazy(() =>
+  import('../../pages/CamperDetailsPage/CamperDetailsPage.jsx')
+);
+const Features = lazy(() => import('../Features/Features.jsx'));
+const Reviews = lazy(() => import('../Reviews/Reviews.jsx'));
 
 function App() {
   return (
