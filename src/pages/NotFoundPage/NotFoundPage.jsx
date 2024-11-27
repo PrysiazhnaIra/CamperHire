@@ -1,19 +1,9 @@
-import { useNavigate } from 'react-router-dom';
-import css from './NotFoundPage.module.css';
+import NotFound from '../../components/NotFound/NotFound.jsx';
 
 export default function NotFoundPage() {
-  const navigate = useNavigate();
-
-  const handleBtnClick = () => {
-    navigate('/catalog');
-  };
-
   return (
-    <div className={css.block}>
-      <h2 className={css.title}>Page is not Found</h2>
-      <button type="button" className={css.btn} onClick={handleBtnClick}>
-        Go Back
-      </button>
-    </div>
+    <>
+      <NotFound />
+    </>
   );
 }
