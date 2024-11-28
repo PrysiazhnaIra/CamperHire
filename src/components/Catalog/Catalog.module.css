@@ -1,2 +1,7 @@
 .container {
+  padding: 98px 0;
+}
+
+.wrapper {
+  padding: 0px 64px;
 }

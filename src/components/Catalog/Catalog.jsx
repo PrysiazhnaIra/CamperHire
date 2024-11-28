@@ -6,7 +6,9 @@ export default function Catalog() {
   return (
     <div className={css.container}>
       <Header />
-      <Filters />
+      <div className={css.wrapper}>
+        <Filters />
+      </div>
     </div>
   );
 }

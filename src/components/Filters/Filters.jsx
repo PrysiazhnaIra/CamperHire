@@ -64,6 +64,7 @@ export default function Filters() {
       <div>
         <p className={css.blockName}>Filters</p>
         <h3 className={css.title}>Vehicle equipment</h3>
+        <hr className={css.divider} />
         <div className={css.icons}>
           {equipmentOptions.map(option => (
             <button
@@ -84,6 +85,7 @@ export default function Filters() {
       </div>
 
       <h3 className={css.title}>Vehicle type</h3>
+      <hr className={css.divider} />
       <div className={css.icons}>
         {typeOptions.map(option => (
           <button
