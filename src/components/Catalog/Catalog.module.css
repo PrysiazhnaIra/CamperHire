@@ -4,4 +4,6 @@
 
 .wrapper {
   padding: 0px 64px;
+  display: flex;
+  gap: 64px;
 }

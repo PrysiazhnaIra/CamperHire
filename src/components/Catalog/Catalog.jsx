@@ -1,3 +1,4 @@
+import CamperList from '../CamperList/CamperList.jsx';
 import Filters from '../Filters/Filters.jsx';
 import Header from '../Header/Header.jsx';
 import css from './Catalog.module.css';
@@ -8,6 +9,7 @@ export default function Catalog() {
       <Header />
       <div className={css.wrapper}>
         <Filters />
+        <CamperList />
       </div>
     </div>
   );

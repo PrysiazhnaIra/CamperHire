@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import css from './Filters.module.css';
 import sprite from '../../img/icons.svg';
+import { useDispatch } from 'react-redux';
+import { fetchCamper } from '../../redux/camper/operations.js';
 
 export default function Filters() {
+  const dispatch = useDispatch();
+
   const [city, setCity] = useState('');
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedType, setSelectedType] = useState(null);
@@ -41,7 +45,7 @@ export default function Filters() {
       equipment: selectedEquipment,
       type: selectedType,
     };
-    onSearch(filters);
+    dispatch(fetchCamper(filters));
   };
 
   return (
