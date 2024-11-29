@@ -1,14 +1,39 @@
 import css from './CamperItem.module.css';
 import sprite from '../../img/icons.svg';
+import Loader from '../Loader/Loader.jsx';
+import { useState } from 'react';
 
-const handleSearch = () => {};
 export default function CamperItem({ item }) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
+
   const imageUrl = item.gallery?.[0]?.thumb || '/img/default-image.jpg';
 
+  const handleImageError = () => {
+    setIsError(true);
+    setIsLoading(false);
+  };
+
+  const handleImageLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleSearch = () => {};
   return (
     <li key={item.id} className={css.item}>
-      <div>
-        <img src={imageUrl} alt={item.name} className={css.image} />
+      <div className={css.imageBlock}>
+        {isLoading && (
+          <div>
+            <Loader />
+          </div>
+        )}
+        <img
+          src={isError ? '/img/default-image.jpg' : imageUrl}
+          alt={item.name || 'Default camper'}
+          className={css.image}
+          onError={handleImageError}
+          onLoad={handleImageLoad}
+        />
       </div>
       <div>
         <div className={css.titleBlock}>
