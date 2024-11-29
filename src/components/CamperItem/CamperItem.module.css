@@ -71,41 +71,6 @@
   transform: scale(1.05);
 }
 
-.infoBlock {
-  display: flex;
-  gap: 16px;
-  margin-bottom: 24px;
-}
-
-.info {
-  display: flex;
-  gap: 4px;
-  justify-content: center;
-  align-items: center;
-}
-
-.infoText {
-  color: var(--main);
-  font-family: Inter;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 1.5;
-}
-
-.star {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  fill: var(--badges);
-  transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-.star:hover,
-.star:focus {
-  fill: var(--rating);
-  transform: scale(1.05);
-}
 .description {
   overflow: hidden;
   color: var(--text);
@@ -116,28 +81,6 @@
   font-weight: 400;
   line-height: 1.5;
   margin-bottom: 24px;
-}
-
-.equipmentBlock {
-  margin-bottom: 24px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.equipmentItem {
-  border-radius: 100px;
-  background: var(--badges);
-  mix-blend-mode: multiply;
-  display: flex;
-  padding: 12px 18px;
-  align-items: center;
-  gap: 8px;
-}
-
-.icon {
-  fill: var(--badges);
-  stroke: var(--main);
 }
 
 .btn {

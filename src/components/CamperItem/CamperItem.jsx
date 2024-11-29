@@ -2,10 +2,14 @@ import css from './CamperItem.module.css';
 import sprite from '../../img/icons.svg';
 import Loader from '../Loader/Loader.jsx';
 import { useState } from 'react';
+import EquipmentList from '../EquipmentList/EquipmentList.jsx';
+import { useNavigate } from 'react-router-dom';
+import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
 
 export default function CamperItem({ item }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
+  const navigate = useNavigate();
 
   const imageUrl = item.gallery?.[0]?.thumb || '/img/default-image.jpg';
 
@@ -18,19 +22,9 @@ export default function CamperItem({ item }) {
     setIsLoading(false);
   };
 
-  const handleSearch = () => {};
-
-  const equipmentIcons = [
-    { key: 'AC', label: 'Air Conditioning', icon: 'icon-ac' },
-    { key: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },
-    { key: 'kitchen', label: 'Kitchen', icon: 'icon-kitchen' },
-    { key: 'TV', label: 'TV', icon: 'icon-tv' },
-    { key: 'radio', label: 'Radio', icon: 'icon-radio' },
-    { key: 'refrigerator', label: 'Refrigerator', icon: 'icon-fridge' },
-    { key: 'microwave', label: 'Microwave', icon: 'icon-microwave' },
-    { key: 'gas', label: 'Gas', icon: 'icon-stove' },
-    { key: 'water', label: 'Water Supply', icon: 'icon-water' },
-  ];
+  const handleSearch = () => {
+    navigate(`/catalog/${item.id}`);
+  };
 
   return (
     <li key={item.id} className={css.item}>
@@ -58,35 +52,12 @@ export default function CamperItem({ item }) {
             </svg>
           </div>
         </div>
-        <div className={css.infoBlock}>
-          <div className={css.info}>
-            <svg className={css.star} width="16" height="16">
-              <use href={`${sprite}#icon-star`} />
-            </svg>
-            <p className={css.infoText}>{item.rating}(Reviews)</p>
-          </div>
-          <div className={css.info}>
-            <svg className={css.map} width="16" height="16">
-              <use href={`${sprite}#icon-map`} />
-            </svg>
-            <p className={css.infoText}>{item.location}</p>
-          </div>
-        </div>
+
+        <CamperSubInfo item={item} />
 
         <p className={css.description}>{item.description}</p>
 
-        <div className={css.equipmentBlock}>
-          {equipmentIcons.map(({ key, label, icon }) =>
-            item[key] ? (
-              <div key={key} className={css.equipmentItem}>
-                <svg className={css.icon} width="24" height="24">
-                  <use href={`${sprite}#${icon}`} />
-                </svg>
-                <span className={css.label}>{label}</span>
-              </div>
-            ) : null
-          )}
-        </div>
+        <EquipmentList item={item} />
 
         <button type="button" className={css.btn} onClick={handleSearch}>
           Search

@@ -5,7 +5,7 @@ import CamperItem from '../CamperItem/CamperItem.jsx';
 
 export default function CamperList() {
   const items = useSelector(selectAllCampers);
-
+  const handleMore = () => {};
   return (
     <div>
       {items.length > 0 && (
@@ -15,6 +15,11 @@ export default function CamperList() {
           })}
         </ul>
       )}
+      <div className={css.btnBlock}>
+        <button type="button" className={css.btn} onClick={handleMore}>
+          Load more
+        </button>
+      </div>
     </div>
   );
 }

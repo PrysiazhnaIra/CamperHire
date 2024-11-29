@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import css from './Filters.module.css';
 import sprite from '../../img/icons.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCamper } from '../../redux/camper/operations.js';
+import { fetchCampers } from '../../redux/camper/operations.js';
 import { selectAllCampers } from '../../redux/camper/selectors.js';
 
 export default function Filters() {
@@ -15,7 +15,7 @@ export default function Filters() {
   const [selectedType, setSelectedType] = useState(null);
 
   useEffect(() => {
-    dispatch(fetchCamper());
+    dispatch(fetchCampers());
   }, []);
 
   const equipmentOptions = [
@@ -53,7 +53,7 @@ export default function Filters() {
       type: selectedType,
       campers,
     };
-    dispatch(fetchCamper(filters));
+    dispatch(fetchCampers(filters));
   };
 
   return (
