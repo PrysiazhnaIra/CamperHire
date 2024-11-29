@@ -118,8 +118,26 @@
   margin-bottom: 24px;
 }
 
-.svgBlock {
+.equipmentBlock {
   margin-bottom: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.equipmentItem {
+  border-radius: 100px;
+  background: var(--badges);
+  mix-blend-mode: multiply;
+  display: flex;
+  padding: 12px 18px;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon {
+  fill: var(--badges);
+  stroke: var(--main);
 }
 
 .btn {

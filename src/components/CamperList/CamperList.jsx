@@ -11,7 +11,6 @@ export default function CamperList() {
       {items.length > 0 && (
         <ul className={css.list}>
           {items.map(item => {
-            console.log(item);
             return <CamperItem key={item.id} item={item} />;
           })}
         </ul>

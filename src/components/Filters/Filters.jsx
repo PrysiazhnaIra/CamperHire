@@ -1,15 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import css from './Filters.module.css';
 import sprite from '../../img/icons.svg';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { fetchCamper } from '../../redux/camper/operations.js';
+import { selectAllCampers } from '../../redux/camper/selectors.js';
 
 export default function Filters() {
   const dispatch = useDispatch();
 
+  const campers = useSelector(selectAllCampers);
+
   const [city, setCity] = useState('');
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedType, setSelectedType] = useState(null);
+
+  useEffect(() => {
+    dispatch(fetchCamper());
+  }, []);
 
   const equipmentOptions = [
     { id: 'ac', label: 'AC', icon: 'icon-ac' },
@@ -44,6 +51,7 @@ export default function Filters() {
       city,
       equipment: selectedEquipment,
       type: selectedType,
+      campers,
     };
     dispatch(fetchCamper(filters));
   };
