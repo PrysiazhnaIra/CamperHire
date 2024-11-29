@@ -1,6 +1,7 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
 import { lazy, Suspense } from 'react';
+import Loader from '../Loader/Loader.jsx';
 
 const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
 const NotFoundPage = lazy(() =>
@@ -17,7 +18,7 @@ const Reviews = lazy(() => import('../Reviews/Reviews.jsx'));
 
 function App() {
   return (
-    <Suspense fallback={<h2>LOADING YOUR COMPONENT!</h2>}>
+    <Suspense fallback={<Loader width="200" height="200" />}>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
