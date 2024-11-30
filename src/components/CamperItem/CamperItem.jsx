@@ -5,11 +5,16 @@ import { useState } from 'react';
 import EquipmentList from '../EquipmentList/EquipmentList.jsx';
 import { useNavigate } from 'react-router-dom';
 import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
+import { useDispatch, useSelector } from 'react-redux';
+import { favoriteActions } from '../../redux/favorite/slice.js';
+import { selectFavoriteCampers } from '../../redux/favorite/selectors.js';
 
 export default function CamperItem({ item }) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const favoriteCampers = useSelector(selectFavoriteCampers);
 
   const imageUrl = item.gallery?.[0]?.thumb || '/img/default-image.jpg';
 
@@ -24,6 +29,10 @@ export default function CamperItem({ item }) {
 
   const handleSearch = () => {
     navigate(`/catalog/${item.id}`);
+  };
+
+  const handleFavoriteClick = id => {
+    dispatch(favoriteActions.toggleFavorite(id));
   };
 
   return (
@@ -47,9 +56,17 @@ export default function CamperItem({ item }) {
           <h2 className={css.title}>{item.name}</h2>
           <div className={css.titleWrap}>
             <h2 className={css.title}>€{item.price}</h2>
-            <svg className={css.heart} width="26" height="24">
-              <use href={`${sprite}#icon-heart`} />
-            </svg>
+            <button onClick={() => handleFavoriteClick(item.id)}>
+              <svg
+                className={`${css.heart} ${
+                  favoriteCampers.includes(item.id) ? css.heartFavorite : ''
+                }`}
+                width="26"
+                height="24"
+              >
+                <use href={`${sprite}#icon-heart`} />
+              </svg>
+            </button>
           </div>
         </div>
 

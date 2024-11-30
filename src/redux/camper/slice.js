@@ -5,10 +5,21 @@ const campersSlice = createSlice({
   name: 'campers',
   initialState: {
     items: [],
+    favoriteItems: [],
     loading: false,
     error: null,
   },
-  reducers: {},
+  reducers: {
+    toggleFavorite(state, action) {
+      if (state.favoriteItems.includes(action.payload)) {
+        state.favoriteItems = state.favoriteItems.filter(
+          item => item != action.payload
+        );
+      } else {
+        state.favoriteItems.push(action.payload);
+      }
+    },
+  },
   extraReducers: builder => {
     builder
       .addCase(fetchCampers.pending, state => {

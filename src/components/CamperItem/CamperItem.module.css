@@ -65,6 +65,7 @@
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
 
+.heartFavorite,
 .heart:hover,
 .heart:focus {
   stroke: var(--button);
