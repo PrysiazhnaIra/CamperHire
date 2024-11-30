@@ -24,22 +24,22 @@ export default function Filters() {
   }, []);
 
   const equipmentOptions = [
-    { id: 'ac', label: 'AC', icon: 'icon-ac' },
+    { id: 'AC', label: 'AC', icon: 'icon-ac' },
     { id: 'automatic', label: 'Automatic', icon: 'icon-automatic' },
     { id: 'kitchen', label: 'Kitchen', icon: 'icon-kitchen' },
-    { id: 'tv', label: 'TV', icon: 'icon-tv' },
+    { id: 'TV', label: 'TV', icon: 'icon-tv' },
     { id: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },
   ];
 
-  // const typeOptions = [
-  //   { id: 'van', label: 'Van', icon: 'icon-van' },
-  //   {
-  //     id: 'fully-integrated',
-  //     label: 'Fully Integrated',
-  //     icon: 'icon-fully-integrated',
-  //   },
-  //   { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
-  // ];
+  const typeOptions = [
+    { id: 'van', label: 'Van', icon: 'icon-van' },
+    {
+      id: 'fullyIntegrated',
+      label: 'Fully Integrated',
+      icon: 'icon-fully-integrated',
+    },
+    { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
+  ];
 
   const setCity = city => {
     dispatch(filterActions.setLocation(city));
@@ -56,9 +56,9 @@ export default function Filters() {
     dispatch(filterActions.setEquipment(updatedEquipment));
   };
 
-  // const handleTypeClick = id => {
-  //   setSelectedType(id);
-  // };
+  const handleTypeClick = id => {
+    dispatch(filterActions.setType(id));
+  };
 
   const handleSearch = () => {
     const filters = equipment.reduce((acc, item) => {
@@ -67,6 +67,9 @@ export default function Filters() {
     }, {});
     if (city) {
       filters.location = city;
+    }
+    if (type) {
+      filters.form = type;
     }
     dispatch(fetchCampers(filters));
   };
@@ -110,7 +113,7 @@ export default function Filters() {
         </div>
       </div>
 
-      {/* <h3 className={css.title}>Vehicle type</h3>
+      <h3 className={css.title}>Vehicle type</h3>
       <hr className={css.divider} />
       <div className={css.icons}>
         {typeOptions.map(option => (
@@ -118,7 +121,7 @@ export default function Filters() {
             key={option.id}
             type="button"
             className={`${css.iconBtn} ${
-              selectedType === option.id ? css.selected : ''
+              type === option.id ? css.selected : ''
             }`}
             onClick={() => handleTypeClick(option.id)}
           >
@@ -128,7 +131,7 @@ export default function Filters() {
             <span>{option.label}</span>
           </button>
         ))}
-      </div> */}
+      </div>
 
       <button type="button" className={css.btn} onClick={handleSearch}>
         Search

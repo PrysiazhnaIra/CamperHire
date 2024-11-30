@@ -16,6 +16,13 @@ const filterSlice = createSlice({
     setEquipment(state, action) {
       state.equipment = action.payload;
     },
+    setType(state, action) {
+      if (state.type == action.payload) {
+        state.type = '';
+      } else {
+        state.type = action.payload;
+      }
+    },
   },
 });
 
