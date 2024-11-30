@@ -56,7 +56,10 @@ export default function CamperItem({ item }) {
           <h2 className={css.title}>{item.name}</h2>
           <div className={css.titleWrap}>
             <h2 className={css.title}>€{item.price}</h2>
-            <button onClick={() => handleFavoriteClick(item.id)}>
+            <button
+              onClick={() => handleFavoriteClick(item.id)}
+              className={css.btnHeart}
+            >
               <svg
                 className={`${css.heart} ${
                   favoriteCampers.includes(item.id) ? css.heartFavorite : ''

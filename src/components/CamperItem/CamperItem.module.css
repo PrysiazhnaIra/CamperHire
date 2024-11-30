@@ -61,6 +61,11 @@
   gap: 12px;
 }
 
+.btnHeart {
+  background-color: transparent;
+  border: none;
+}
+
 .heart {
   transition: transform 0.3s ease, text-shadow 0.3s ease;
 }
