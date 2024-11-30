@@ -22,6 +22,7 @@ const campersSlice = createSlice({
       .addCase(fetchCampers.rejected, (state, action) => {
         state.loading = false;
         state.error = action.payload;
+        state.items = [];
       });
   },
 });

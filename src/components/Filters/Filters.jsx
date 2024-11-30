@@ -5,16 +5,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../../redux/camper/operations.js';
 import { selectAllCampers } from '../../redux/camper/selectors.js';
 import { filterActions } from '../../redux/filter/slice.js';
-import { selectCity } from '../../redux/filter/selectors.js';
+import {
+  selectCity,
+  selectEquipment,
+  selectType,
+} from '../../redux/filter/selectors.js';
 
 export default function Filters() {
   const dispatch = useDispatch();
 
   const campers = useSelector(selectAllCampers);
   const city = useSelector(selectCity);
-
-  const [selectedEquipment, setSelectedEquipment] = useState([]);
-  const [selectedType, setSelectedType] = useState(null);
+  const equipment = useSelector(selectEquipment);
+  const type = useSelector(selectType);
 
   useEffect(() => {
     dispatch(fetchCampers());
@@ -28,36 +31,43 @@ export default function Filters() {
     { id: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },
   ];
 
-  const typeOptions = [
-    { id: 'van', label: 'Van', icon: 'icon-van' },
-    {
-      id: 'fully-integrated',
-      label: 'Fully Integrated',
-      icon: 'icon-fully-integrated',
-    },
-    { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
-  ];
+  // const typeOptions = [
+  //   { id: 'van', label: 'Van', icon: 'icon-van' },
+  //   {
+  //     id: 'fully-integrated',
+  //     label: 'Fully Integrated',
+  //     icon: 'icon-fully-integrated',
+  //   },
+  //   { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
+  // ];
 
   const setCity = city => {
     dispatch(filterActions.setLocation(city));
   };
 
   const handleEquipmentClick = id => {
-    setSelectedEquipment(prev =>
-      prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
-    );
+    let updatedEquipment = [];
+    if (equipment.includes(id)) {
+      updatedEquipment = equipment.filter(item => item != id);
+    } else {
+      updatedEquipment = [...equipment];
+      updatedEquipment.push(id);
+    }
+    dispatch(filterActions.setEquipment(updatedEquipment));
   };
 
-  const handleTypeClick = id => {
-    setSelectedType(id);
-  };
+  // const handleTypeClick = id => {
+  //   setSelectedType(id);
+  // };
 
   const handleSearch = () => {
-    const filters = {
-      city: city,
-      equipment: selectedEquipment,
-      type: selectedType,
-    };
+    const filters = equipment.reduce((acc, item) => {
+      acc[item] = true;
+      return acc;
+    }, {});
+    if (city) {
+      filters.location = city;
+    }
     dispatch(fetchCampers(filters));
   };
 
@@ -87,7 +97,7 @@ export default function Filters() {
               key={option.id}
               type="button"
               className={`${css.iconBtn} ${
-                selectedEquipment.includes(option.id) ? css.selected : ''
+                equipment.includes(option.id) ? css.selected : ''
               }`}
               onClick={() => handleEquipmentClick(option.id)}
             >
@@ -100,7 +110,7 @@ export default function Filters() {
         </div>
       </div>
 
-      <h3 className={css.title}>Vehicle type</h3>
+      {/* <h3 className={css.title}>Vehicle type</h3>
       <hr className={css.divider} />
       <div className={css.icons}>
         {typeOptions.map(option => (
@@ -118,7 +128,7 @@ export default function Filters() {
             <span>{option.label}</span>
           </button>
         ))}
-      </div>
+      </div> */}
 
       <button type="button" className={css.btn} onClick={handleSearch}>
         Search

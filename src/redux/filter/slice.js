@@ -13,6 +13,9 @@ const filterSlice = createSlice({
     setLocation(state, action) {
       state.location = action.payload;
     },
+    setEquipment(state, action) {
+      state.equipment = action.payload;
+    },
   },
 });
 

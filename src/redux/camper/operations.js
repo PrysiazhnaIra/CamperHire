@@ -6,9 +6,8 @@ export const fetchCampers = createAsyncThunk(
   async (filters, thunkAPI) => {
     try {
       console.log(filters);
-      const requestParams = { location: filters.city };
       const response = await api.get('/campers', {
-        params: requestParams,
+        params: filters,
       });
       console.log(response);
       return response.data.items;
