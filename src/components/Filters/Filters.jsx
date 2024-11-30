@@ -4,13 +4,15 @@ import sprite from '../../img/icons.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCampers } from '../../redux/camper/operations.js';
 import { selectAllCampers } from '../../redux/camper/selectors.js';
+import { filterActions } from '../../redux/filter/slice.js';
+import { selectCity } from '../../redux/filter/selectors.js';
 
 export default function Filters() {
   const dispatch = useDispatch();
 
   const campers = useSelector(selectAllCampers);
+  const city = useSelector(selectCity);
 
-  const [city, setCity] = useState('');
   const [selectedEquipment, setSelectedEquipment] = useState([]);
   const [selectedType, setSelectedType] = useState(null);
 
@@ -36,6 +38,10 @@ export default function Filters() {
     { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
   ];
 
+  const setCity = city => {
+    dispatch(filterActions.setLocation(city));
+  };
+
   const handleEquipmentClick = id => {
     setSelectedEquipment(prev =>
       prev.includes(id) ? prev.filter(item => item !== id) : [...prev, id]
@@ -48,10 +54,9 @@ export default function Filters() {
 
   const handleSearch = () => {
     const filters = {
-      city,
+      city: city,
       equipment: selectedEquipment,
       type: selectedType,
-      campers,
     };
     dispatch(fetchCampers(filters));
   };
@@ -63,7 +68,6 @@ export default function Filters() {
         <input
           id="city"
           type="text"
-          value={city}
           onChange={e => setCity(e.target.value)}
           placeholder="City"
           className={css.input}

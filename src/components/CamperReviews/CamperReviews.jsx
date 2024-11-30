@@ -2,7 +2,7 @@ export default function CamperReviews() {
   return (
     <div>
       <div>
-        <p></p>
+        <p>Reviews here</p>
         <div>
           <p></p>
           <svg></svg>

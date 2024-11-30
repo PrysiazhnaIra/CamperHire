@@ -5,7 +5,11 @@ export const fetchCampers = createAsyncThunk(
   'campers/fetchAll',
   async (filters, thunkAPI) => {
     try {
-      const response = await api.get('/campers');
+      console.log(filters);
+      const requestParams = { location: filters.city };
+      const response = await api.get('/campers', {
+        params: requestParams,
+      });
       console.log(response);
       return response.data.items;
     } catch (error) {
