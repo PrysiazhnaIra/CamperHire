@@ -3,11 +3,10 @@
   top: 0;
   width: 100vw;
   z-index: 1;
-
   display: flex;
+  justify-content: space-between;
   padding: 24px 64px;
   align-items: center;
-  gap: 450px;
   border-bottom: 1px solid var(--badges);
   background: var(--inputs);
 }
@@ -45,4 +44,16 @@
 .linkLogo:hover,
 .linkLogo:focus {
   transform: scale(1.05);
+}
+
+@media (max-width: 480px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 1440px) {
 }

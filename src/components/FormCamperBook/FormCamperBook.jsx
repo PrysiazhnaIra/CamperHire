@@ -92,9 +92,12 @@ export default function FormCamperBook() {
               </div>
 
               <div>
-                <label htmlFor="booking"></label>
+                <label htmlFor="booking" className={css.srOnly}>
+                  Booking Date*
+                </label>
                 <DatePickerField
                   name="booking"
+                  id="booking"
                   placeholderText="Booking date*"
                   dateFormat="yyyy-MM-dd"
                   className={css.input}
