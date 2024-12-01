@@ -20,7 +20,6 @@ export default function CamperDetails() {
       try {
         setIsLoading(true);
         const response = await api.get(`/campers/${id}`);
-        console.log('Response:', response);
         setCamperData(response.data);
         setIsLoading(false);
       } catch (error) {
