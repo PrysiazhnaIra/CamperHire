@@ -20,7 +20,7 @@ export default function Filters() {
   const type = useSelector(selectType);
 
   useEffect(() => {
-    dispatch(fetchCampers());
+    handleSearch();
   }, []);
 
   const equipmentOptions = [
@@ -81,6 +81,7 @@ export default function Filters() {
         <input
           id="city"
           type="text"
+          value={city}
           onChange={e => setCity(e.target.value)}
           placeholder="City"
           className={css.input}
