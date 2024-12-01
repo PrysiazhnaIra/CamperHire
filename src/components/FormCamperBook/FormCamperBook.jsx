@@ -8,6 +8,11 @@ import 'react-datepicker/dist/react-datepicker.css';
 import DatePickerField from '../DataPicker/DataPicker.jsx';
 
 const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(2, 'Name must be at least 2 characters')
+    .max(50, 'Name must be less than 50 characters')
+    .matches(/^[a-zA-Zа-яА-Я\s]+$/, 'Name can only contain letters and spaces')
+    .required('Name is required'),
   email: Yup.string().email('Invalid email address').required('Required'),
   comment: Yup.string()
     .min(10, 'Comment should be at least 10 characters')
@@ -28,12 +33,12 @@ export default function FormCamperBook() {
   const handleSubmit = async (values, actions) => {
     setIsLoading(true);
     try {
-      console.log('Form values:', values);
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      toast.success('Your booking request has been successfully submitted!');
       actions.resetForm();
-      toast.success('Operation was successful!');
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast.error('Operation failed. Please check your info.');
+      toast.error('Something went wrong. Please try again.');
     } finally {
       setIsLoading(false);
     }
@@ -55,54 +60,72 @@ export default function FormCamperBook() {
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
-        <Form className={css.form}>
-          <div className={css.formBlock}>
-            <div>
-              <Field name="name" placeholder="Name*" className={css.input} />
-              <ErrorMessage
-                name="name"
-                component="span"
-                className={css.errorMessage}
-              />
-            </div>
+        {({ isSubmitting }) => (
+          <Form className={css.form}>
+            <div className={css.formBlock}>
+              <div>
+                <Field
+                  name="name"
+                  placeholder="Name*"
+                  className={css.input}
+                  disabled={isSubmitting || isLoading}
+                />
+                <ErrorMessage
+                  name="name"
+                  component="span"
+                  className={css.errorMessage}
+                />
+              </div>
 
-            <div>
-              <Field name="email" placeholder="Email*" className={css.input} />
-              <ErrorMessage
-                name="email"
-                component="span"
-                className={css.errorMessage}
-              />
-            </div>
+              <div>
+                <Field
+                  name="email"
+                  placeholder="Email*"
+                  className={css.input}
+                  disabled={isSubmitting || isLoading}
+                />
+                <ErrorMessage
+                  name="email"
+                  component="span"
+                  className={css.errorMessage}
+                />
+              </div>
 
-            <div>
-              <label htmlFor="booking"></label>
-              <DatePickerField
-                name="booking"
-                placeholderText="Booking date*"
-                dateFormat="yyyy-MM-dd"
-                className={css.input}
-              />
-            </div>
+              <div>
+                <label htmlFor="booking"></label>
+                <DatePickerField
+                  name="booking"
+                  placeholderText="Booking date*"
+                  dateFormat="yyyy-MM-dd"
+                  className={css.input}
+                  disabled={isSubmitting || isLoading}
+                />
+              </div>
 
-            <div>
-              <Field
-                as="textarea"
-                name="comment"
-                placeholder="Comment"
-                className={`${css.input} ${css.textarea}`}
-              />
-              <ErrorMessage
-                name="comment"
-                component="span"
-                className={css.errorMessage}
-              />
+              <div>
+                <Field
+                  as="textarea"
+                  name="comment"
+                  placeholder="Comment"
+                  className={`${css.input} ${css.textarea}`}
+                  disabled={isSubmitting || isLoading}
+                />
+                <ErrorMessage
+                  name="comment"
+                  component="span"
+                  className={css.errorMessage}
+                />
+              </div>
             </div>
-          </div>
-          <button type="submit" className={css.btn} disabled={isLoading}>
-            Send
-          </button>
-        </Form>
+            <button
+              type="submit"
+              className={css.btn}
+              disabled={isSubmitting || isLoading}
+            >
+              {isLoading ? 'Sending...' : 'Send'}
+            </button>
+          </Form>
+        )}
       </Formik>
     </div>
   );
