@@ -6,7 +6,7 @@ import { api } from '../../config/api.js';
 import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
 import CamperFeatures from '../CamperFeatures/CamperFeatures.jsx';
 import CamperReviews from '../CamperReviews/CamperReviews.jsx';
-import Form from '../Form/Form.jsx';
+import FormCamperBook from '../FormCamperBook/FormCamperBook.jsx';
 import GoBackBtn from '../GoBackBtn/GoBackBtn.jsx';
 import css from './CamperDetails.module.css';
 
@@ -101,7 +101,7 @@ export default function CamperDetails() {
             )}
           </div>
 
-          {/* <Form /> */}
+          <FormCamperBook />
         </div>
         <GoBackBtn />
       </div>
