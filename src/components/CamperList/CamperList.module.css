@@ -22,4 +22,11 @@
   letter-spacing: -0.005em;
   background: var(--white);
   margin-top: 40px;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.btn:hover,
+.btn:focus {
+  border: 1px solid var(--button-hover);
+  transform: scale(1.05);
 }

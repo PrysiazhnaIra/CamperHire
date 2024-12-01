@@ -7,11 +7,6 @@
   display: grid;
   grid-template-columns: 292px auto;
   column-gap: 24px;
-
-  /* display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 24px; */
 }
 
 .imageBlock {
