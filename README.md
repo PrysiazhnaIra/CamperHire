@@ -76,3 +76,9 @@ reviews, and book campers directly through the website.
 The project is deployed and accessible at:
 
 - Live Demo: [TravelTrucks on Vercel](https://camper-hire.vercel.app/)
+
+## Author
+
+- Name: Ira Prysiazhna
+- [My GitHub Profile URL](https://github.com/PrysiazhnaIra)
+- [My LinkedIn Profile URL](https://www.linkedin.com/in/ira-prysiazhna/)
