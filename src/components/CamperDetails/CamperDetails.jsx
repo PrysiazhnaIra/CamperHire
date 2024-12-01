@@ -7,6 +7,7 @@ import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
 import CamperFeatures from '../CamperFeatures/CamperFeatures.jsx';
 import CamperReviews from '../CamperReviews/CamperReviews.jsx';
 import Form from '../Form/Form.jsx';
+import GoBackBtn from '../GoBackBtn/GoBackBtn.jsx';
 import css from './CamperDetails.module.css';
 
 export default function CamperDetails() {
@@ -91,15 +92,18 @@ export default function CamperDetails() {
           ></div>
         </div>
 
-        <div className={css.infoBlock}>
-          {activeTab === 'features' ? (
-            <CamperFeatures item={camperData} />
-          ) : (
-            <CamperReviews reviews={camperData.reviews} />
-          )}
-        </div>
+        <div className={css.infoContainer}>
+          <div className={css.infoBlock}>
+            {activeTab === 'features' ? (
+              <CamperFeatures item={camperData} />
+            ) : (
+              <CamperReviews reviews={camperData.reviews} />
+            )}
+          </div>
 
-        {/* <Form /> */}
+          {/* <Form /> */}
+        </div>
+        <GoBackBtn />
       </div>
     </>
   );

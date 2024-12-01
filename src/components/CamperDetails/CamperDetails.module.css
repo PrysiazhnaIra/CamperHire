@@ -127,3 +127,7 @@
   width: 85px;
   transform: translateX(calc(100px + 40px));
 }
+
+.infoContainer {
+  margin-bottom: 56px;
+}
