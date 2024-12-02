@@ -1,12 +1,12 @@
 import DatePicker from 'react-datepicker';
 import { useField } from 'formik';
-
+import css from './DataPicker.module.css';
 const DatePickerField = ({ name, ...props }) => {
   const [field, meta, helpers] = useField(name);
   const { setValue } = helpers;
 
   return (
-    <div>
+    <div className={css.data}>
       <DatePicker
         {...field}
         {...props}

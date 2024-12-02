@@ -2,8 +2,7 @@
   border-radius: 10px;
   border: 1px solid var(--gray-light);
   display: flex;
-  width: 641px;
-  padding: 44px;
+  padding: 20px;
   flex-direction: column;
   gap: 24px;
 }
@@ -28,7 +27,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
 }
 
 .formBlock {
@@ -48,12 +46,33 @@
 
 .input {
   display: flex;
-  width: 527px;
-  height: 60px;
   padding: 18px;
   flex-direction: column;
   align-items: flex-start;
   gap: 10px;
+  width: 100%;
+  border-radius: 12px;
+  background: var(--inputs);
+  color: var(--main);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.dataPickerContainer div {
+  width: 100%;
+  display: flex;
+}
+
+.dataPicker {
+  display: flex;
+  padding: 18px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  width: 100%;
   border-radius: 12px;
   background: var(--inputs);
   color: var(--main);
@@ -70,9 +89,12 @@
 }
 
 .textarea {
-  width: 527px;
-  height: 118px;
   resize: none;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: center;
 }
 
 .btn {
@@ -110,4 +132,57 @@
   border: 0;
   clip: rect(0, 0, 0, 0);
   overflow: hidden;
+}
+
+@media (min-width: 1440px) {
+  .mainContainer {
+    border-radius: 10px;
+    border: 1px solid var(--gray-light);
+    display: flex;
+    width: 641px;
+    padding: 44px;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .formBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .input {
+    display: flex;
+    width: 527px;
+    height: 60px;
+    padding: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    border-radius: 12px;
+    background: var(--inputs);
+    color: var(--main);
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+  }
+
+  .textarea {
+    width: 527px;
+    height: 118px;
+  }
+
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .btnContainer {
+    display: flex;
+    justify-content: center;
+  }
 }

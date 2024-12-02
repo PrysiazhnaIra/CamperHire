@@ -120,13 +120,15 @@ export default function FormCamperBook() {
                 />
               </div>
             </div>
-            <button
-              type="submit"
-              className={css.btn}
-              disabled={isSubmitting || isLoading}
-            >
-              {isLoading ? 'Sending...' : 'Send'}
-            </button>
+            <div className={css.btnContainer}>
+              <button
+                type="submit"
+                className={css.btn}
+                disabled={isSubmitting || isLoading}
+              >
+                {isLoading ? 'Sending...' : 'Send'}
+              </button>
+            </div>
           </Form>
         )}
       </Formik>

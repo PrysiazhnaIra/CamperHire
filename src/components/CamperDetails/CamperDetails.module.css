@@ -132,5 +132,24 @@
 .infoContainer {
   margin-bottom: 56px;
   display: flex;
+  flex-direction: column;
   gap: 40px;
+}
+
+@media (min-width: 1440px) {
+  .infoContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .detailsBlock {
+    max-width: 1440px;
+  }
+}
+
+.goBackBtn {
+  display: flex;
+  justify-content: center;
 }

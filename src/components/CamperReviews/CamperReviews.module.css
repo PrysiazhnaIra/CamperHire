@@ -43,7 +43,6 @@
 .stars {
   display: flex;
   gap: 4px;
-  /* margin: 4px 0; */
 }
 
 .star {
@@ -57,7 +56,6 @@
 }
 
 .reviewComment {
-  width: 631px;
   color: var(--text);
   font-family: Inter;
   font-size: 16px;

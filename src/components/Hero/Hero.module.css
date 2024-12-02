@@ -1,11 +1,10 @@
 .hero {
-  width: 100vw;
   height: 100vh;
   background-image: url('../../img/bg.jpg');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 260px 0 0 64px;
+  padding: 260px 64px;
   margin: 0 auto;
 }
 

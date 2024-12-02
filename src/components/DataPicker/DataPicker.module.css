@@ -1,0 +1,11 @@
+.data {
+  width: 100%;
+  border-radius: 12px;
+  background: var(--inputs);
+  color: var(--main);
+  font-family: Inter;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1.5;
+}

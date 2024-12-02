@@ -103,7 +103,9 @@ export default function CamperDetails() {
 
           <FormCamperBook />
         </div>
-        <GoBackBtn />
+        <div className={css.goBackBtn}>
+          <GoBackBtn />
+        </div>
       </div>
     </>
   );
