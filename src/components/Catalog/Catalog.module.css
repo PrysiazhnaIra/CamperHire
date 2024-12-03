@@ -3,10 +3,16 @@
 }
 
 .wrapper {
-  padding: 0px 64px;
+  padding: 0px 20px;
   display: flex;
   flex-direction: column;
   gap: 64px;
+}
+
+@media (min-width: 768px) {
+  .wrapper {
+    padding: 0px 64px;
+  }
 }
 
 @media (min-width: 1024px) {

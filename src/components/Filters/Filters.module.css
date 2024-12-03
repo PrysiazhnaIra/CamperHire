@@ -16,7 +16,7 @@
 
 .input {
   display: flex;
-  width: 360px;
+  width: 100%;
   padding: 18px;
   padding-left: 36px;
   flex-direction: column;
@@ -70,7 +70,6 @@
 }
 
 .divider {
-  width: 360px;
   height: 0;
   border: none;
   border-top: 1px solid var(--gray-light);
@@ -131,4 +130,10 @@
 .btn:focus {
   background: var(--button-hover);
   transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+  .input {
+    width: 360px;
+  }
 }

@@ -4,7 +4,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 260px 64px;
+  padding: 150px 25px;
   margin: 0 auto;
 }
 
@@ -51,4 +51,10 @@
 .btn:focus {
   background: var(--button-hover);
   transform: scale(1.05);
+}
+
+@media (min-width: 480px) {
+  .hero {
+    padding: 260px 64px;
+  }
 }

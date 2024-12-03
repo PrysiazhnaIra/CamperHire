@@ -11,8 +11,6 @@
 
 .imageBlock {
   position: relative;
-  width: 292px;
-  height: 320px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -124,5 +122,10 @@
 
   .description {
     font-size: 16px;
+  }
+
+  .imageBlock {
+    width: 292px;
+    height: 320px;
   }
 }
