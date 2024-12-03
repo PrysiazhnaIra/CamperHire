@@ -55,7 +55,8 @@ export default function CamperItem({ item }) {
         <div className={css.titleBlock}>
           <h2 className={css.title}>{item.name}</h2>
           <div className={css.titleWrap}>
-            <h2 className={css.title}>€{item.price}</h2>
+            <h2 className={css.title}>€{item.price.toFixed(2)}</h2>
+
             <button
               onClick={() => handleFavoriteClick(item.id)}
               className={css.btnHeart}
@@ -80,7 +81,7 @@ export default function CamperItem({ item }) {
         <EquipmentList item={item} />
 
         <button type="button" className={css.btn} onClick={handleSearch}>
-          Search
+          Show more
         </button>
       </div>
     </li>

@@ -4,7 +4,7 @@
   width: 100vw;
   z-index: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   padding: 15px;
   align-items: center;
   border-bottom: 1px solid var(--badges);
@@ -52,8 +52,15 @@
   }
 }
 
+@media (min-width: 1440px) {
+  .block {
+    justify-content: flex-start;
+    gap: 450px;
+  }
+}
+
 @media (min-width: 1441px) {
   .link {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
