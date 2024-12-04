@@ -12,12 +12,12 @@ const validationSchema = Yup.object({
     .min(2, 'Name must be at least 2 characters')
     .max(50, 'Name must be less than 50 characters')
     .matches(/^[a-zA-Zа-яА-Я\s]+$/, 'Name can only contain letters and spaces')
-    .required('Name is required'),
+    .required('Required'),
   email: Yup.string().email('Invalid email address').required('Required'),
   comment: Yup.string()
     .min(10, 'Comment should be at least 10 characters')
-    .required('Required!'),
-  booking: Yup.date().required('Booking date is required'),
+    .required('Required'),
+  booking: Yup.date().required('Required'),
 });
 
 export default function FormCamperBook() {
