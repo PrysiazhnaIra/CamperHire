@@ -32,7 +32,7 @@ export default function Filters() {
   ];
 
   const typeOptions = [
-    { id: 'van', label: 'Van', icon: 'icon-van' },
+    { id: 'panelTruck', label: 'Van', icon: 'icon-van' },
     {
       id: 'fullyIntegrated',
       label: 'Fully Integrated',
