@@ -12,7 +12,9 @@ export default function CamperSubInfo({ item }) {
         <svg className={css.star} width="16" height="16">
           <use href={`${sprite}#icon-star`} />
         </svg>
-        <p className={css.infoText}>{item.rating}(Reviews)</p>
+        <p className={`${css.infoText} ${css.ratingReviews}`}>
+          {item.rating}({item.reviews?.length || 0} Reviews)
+        </p>
       </div>
       <div className={css.info}>
         <svg className={css.map} width="16" height="16">

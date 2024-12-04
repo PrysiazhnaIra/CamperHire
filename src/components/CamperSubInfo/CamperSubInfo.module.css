@@ -20,6 +20,10 @@
   line-height: 1.5;
 }
 
+.ratingReviews {
+  text-decoration: underline;
+}
+
 .star {
   display: flex;
   justify-content: center;
