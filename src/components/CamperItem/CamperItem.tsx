@@ -1,10 +1,10 @@
 import css from './CamperItem.module.css';
 import sprite from '../../img/icons.svg';
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader.js';
 import { useState } from 'react';
-import EquipmentList from '../EquipmentList/EquipmentList.jsx';
+import EquipmentList from '../EquipmentList/EquipmentList.js';
 import { useNavigate } from 'react-router-dom';
-import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
+import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { favoriteActions } from '../../redux/favorite/slice.js';
 import { selectFavoriteCampers } from '../../redux/favorite/selectors.js';

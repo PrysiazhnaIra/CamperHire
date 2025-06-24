@@ -3,9 +3,9 @@ import * as Yup from 'yup';
 import { toast, Toaster } from 'react-hot-toast';
 import css from './FormCamperBook.module.css';
 import { useState } from 'react';
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader.js';
 import 'react-datepicker/dist/react-datepicker.css';
-import DatePickerField from '../DataPicker/DataPicker.jsx';
+import DatePickerField from '../DataPicker/DataPicker.js';
 
 const validationSchema = Yup.object({
   name: Yup.string()

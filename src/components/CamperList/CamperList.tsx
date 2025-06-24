@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import css from './CamperList.module.css';
 import { selectAllCampers } from '../../redux/camper/selectors.js';
-import CamperItem from '../CamperItem/CamperItem.jsx';
+import CamperItem from '../CamperItem/CamperItem.js';
 import { useState } from 'react';
 import toast, { Toaster } from 'react-hot-toast';
 

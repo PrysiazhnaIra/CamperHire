@@ -1,13 +1,13 @@
-import Header from '../Header/Header.jsx';
+import Header from '../Header/Header.js';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader.js';
 import { api } from '../../config/api.js';
-import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.jsx';
-import CamperFeatures from '../CamperFeatures/CamperFeatures.jsx';
-import CamperReviews from '../CamperReviews/CamperReviews.jsx';
-import FormCamperBook from '../FormCamperBook/FormCamperBook.jsx';
-import GoBackBtn from '../GoBackBtn/GoBackBtn.jsx';
+import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.js';
+import CamperFeatures from '../CamperFeatures/CamperFeatures.js';
+import CamperReviews from '../CamperReviews/CamperReviews.js';
+import FormCamperBook from '../FormCamperBook/FormCamperBook.js';
+import GoBackBtn from '../GoBackBtn/GoBackBtn.js';
 import css from './CamperDetails.module.css';
 
 export default function CamperDetails() {

@@ -1,4 +1,4 @@
-import EquipmentList from '../EquipmentList/EquipmentList.jsx';
+import EquipmentList from '../EquipmentList/EquipmentList.js';
 import css from './CamperFeatures.module.css';
 
 export default function CamperFeatures({ item }) {

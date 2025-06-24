@@ -1,22 +1,22 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
 import { lazy, Suspense } from 'react';
-import Loader from '../Loader/Loader.jsx';
+import Loader from '../Loader/Loader.js';
 
-const HomePage = lazy(() => import('../../pages/HomePage/HomePage.jsx'));
-const NotFoundPage = lazy(() =>
-  import('../../pages/NotFoundPage/NotFoundPage.jsx')
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage.js'));
+const NotFoundPage = lazy(
+  () => import('../../pages/NotFoundPage/NotFoundPage.js')
 );
-const CatalogPage = lazy(() =>
-  import('../../pages/CatalogPage/CatalogPage.jsx')
+const CatalogPage = lazy(
+  () => import('../../pages/CatalogPage/CatalogPage.js')
 );
-const CamperDetailsPage = lazy(() =>
-  import('../../pages/CamperDetailsPage/CamperDetailsPage.jsx')
+const CamperDetailsPage = lazy(
+  () => import('../../pages/CamperDetailsPage/CamperDetailsPage.js')
 );
-const CamperFeatures = lazy(() =>
-  import('../CamperFeatures/CamperFeatures.jsx')
+const CamperFeatures = lazy(
+  () => import('../CamperFeatures/CamperFeatures.js')
 );
-const CamperReviews = lazy(() => import('../CamperReviews/CamperReviews.jsx'));
+const CamperReviews = lazy(() => import('../CamperReviews/CamperReviews.js'));
 
 function App() {
   return (

@@ -1,4 +1,4 @@
-import GoBackBtn from '../GoBackBtn/GoBackBtn.jsx';
+import GoBackBtn from '../GoBackBtn/GoBackBtn';
 import css from './NotFound.module.css';
 
 export default function NotFound() {

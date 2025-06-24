@@ -1,4 +1,4 @@
-import NotFound from '../../components/NotFound/NotFound.jsx';
+import NotFound from '../../components/NotFound/NotFound';
 
 export default function NotFoundPage() {
   return (

@@ -1,5 +1,5 @@
-import Header from '../Header/Header.jsx';
-import Hero from '../Hero/Hero.jsx';
+import Header from '../Header/Header.js';
+import Hero from '../Hero/Hero.js';
 
 export default function Home() {
   return (
