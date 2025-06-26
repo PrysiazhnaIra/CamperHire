@@ -1,7 +1,9 @@
 import Header from '../Header/Header.js';
 import Hero from '../Hero/Hero.js';
 
-export default function Home() {
+interface HomeProps {}
+
+export default function Home({}: HomeProps) {
   return (
     <div>
       <Header />

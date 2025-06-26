@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import css from './Hero.module.css';
 
-export default function Hero() {
+interface HeroProps {}
+
+export default function Hero({}: HeroProps) {
   const navigate = useNavigate();
 
   const handleBtnClick = () => {

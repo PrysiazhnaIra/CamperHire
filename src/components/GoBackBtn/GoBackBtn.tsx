@@ -1,7 +1,9 @@
 import { useNavigate } from 'react-router-dom';
 import css from './GoBackBtn.module.css';
 
-export default function GoBackBtn() {
+interface GoBackBtnProps {}
+
+export default function GoBackBtn({}: GoBackBtnProps) {
   const navigate = useNavigate();
   const handleBtnClick = () => {
     navigate('/catalog');

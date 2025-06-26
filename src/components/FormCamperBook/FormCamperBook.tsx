@@ -1,4 +1,4 @@
-import { ErrorMessage, Field, Formik, Form } from 'formik';
+import { ErrorMessage, Field, Formik, Form, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { toast, Toaster } from 'react-hot-toast';
 import css from './FormCamperBook.module.css';
@@ -20,17 +20,32 @@ const validationSchema = Yup.object({
   booking: Yup.date().required('Required'),
 });
 
-export default function FormCamperBook() {
-  const [isLoading, setIsLoading] = useState(false);
+interface FormValues {
+  name: string;
+  email: string;
+  booking: Date | null;
+  comment: string;
+}
+
+interface FormCamperBookProps {
+  initialValues?: FormValues;
+  onSubmit?: (values: FormValues, actions: any) => void;
+}
+
+export default function FormCamperBook({}: FormCamperBookProps) {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const initialValues = {
     name: '',
     email: '',
-    booking: '',
+    booking: null,
     comment: '',
   };
 
-  const handleSubmit = async (values, actions) => {
+  const handleSubmit = async (
+    values: FormValues,
+    actions: FormikHelpers<FormValues>
+  ) => {
     setIsLoading(true);
     try {
       await new Promise(resolve => setTimeout(resolve, 1000));
@@ -42,6 +57,8 @@ export default function FormCamperBook() {
     } finally {
       setIsLoading(false);
     }
+
+    console.log('values', values);
   };
 
   return (
@@ -55,8 +72,8 @@ export default function FormCamperBook() {
         </p>
       </div>
 
-      <Formik
-        initialValues={initialValues}
+      <Formik<FormValues>
+        initialValues={initialValues as FormValues}
         onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >

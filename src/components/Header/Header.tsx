@@ -3,11 +3,17 @@ import css from './Header.module.css';
 import sprite from '../../img/icons.svg';
 import clsx from 'clsx';
 
-const buildLinkClass = ({ isActive }) => {
+interface HeaderProps {}
+
+interface BuildLinkClassProps {
+  isActive: boolean;
+}
+
+const buildLinkClass = ({ isActive }: BuildLinkClassProps) => {
   return clsx(css.link, isActive && css.active);
 };
 
-export default function Header() {
+export default function Header({}: HeaderProps) {
   return (
     <nav className={css.block}>
       <NavLink to="/" className={css.linkLogo}>
