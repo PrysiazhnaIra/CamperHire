@@ -1,7 +1,11 @@
 import css from './EquipmentList.module.css';
 import sprite from '../../img/icons.svg';
 
-export default function EquipmentList({ item }) {
+export default function EquipmentList({
+  item,
+}: {
+  item: Record<string, boolean>;
+}) {
   const equipmentIcons = [
     { key: 'AC', label: 'Air Conditioning', icon: 'icon-ac' },
     { key: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },

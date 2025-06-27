@@ -1,6 +1,6 @@
 import css from './CamperItem.module.css';
 import sprite from '../../img/icons.svg';
-import Loader from '../Loader/Loader.js';
+import Loader from '../Loader/Loader';
 import { useState } from 'react';
 import EquipmentList from '../EquipmentList/EquipmentList';
 import { useNavigate } from 'react-router-dom';
@@ -10,7 +10,7 @@ import { favoriteActions } from '../../redux/favorite/slice';
 import { selectFavoriteCampers } from '../../redux/favorite/selectors';
 import { CamperData } from '../../types/camper';
 
-export default function CamperItem({ item }: CamperData) {
+export default function CamperItem({ item }: any) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ export default function CamperItem({ item }: CamperData) {
     navigate(`/catalog/${item.id}`);
   };
 
-  const handleFavoriteClick = id => {
+  const handleFavoriteClick = (id: any) => {
     dispatch(favoriteActions.toggleFavorite(id));
   };
 

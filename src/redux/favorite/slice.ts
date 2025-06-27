@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FavoriteState } from '../../types/favorite';
-import { CamperData } from '../../types/camper';
+import { string } from 'prop-types';
 
 const initialState: FavoriteState = {
   favorites: [],
@@ -10,16 +10,14 @@ const favoriteSlice = createSlice({
   name: 'favoriteCampers',
   initialState,
   reducers: {
-    toggleFavorite(
-      state,
-      action: PayloadAction<CamperData['id'] | CamperData>
-    ) {
-      if (state.favorites.includes(action.payload)) {
+    toggleFavorite(state, action: PayloadAction<string>) {
+      const camperId = action.payload;
+      if (state.favorites.includes(camperId)) {
         state.favorites = state.favorites.filter(
-          item => item != action.payload
+          (idInList: string) => idInList !== camperId
         );
       } else {
-        state.favorites.push(action.payload);
+        state.favorites.push(camperId);
       }
     },
   },

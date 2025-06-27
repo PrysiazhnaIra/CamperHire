@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { api } from '../../config/api';
 
-import { CamperFilters } from '../../types/camper';
 import { CamperData } from '../../types/camper';
+import { CamperFilters } from '../../types/filter';
 
 export const fetchCampers = createAsyncThunk<
   CamperData[],
