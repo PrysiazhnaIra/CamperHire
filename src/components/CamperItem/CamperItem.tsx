@@ -8,8 +8,9 @@ import CamperSubInfo from '../CamperSubInfo/CamperSubInfo.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { favoriteActions } from '../../redux/favorite/slice.js';
 import { selectFavoriteCampers } from '../../redux/favorite/selectors.js';
+import { CamperData } from '../../types/camper';
 
-export default function CamperItem({ item }) {
+export default function CamperItem({ item }: CamperData) {
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
   const navigate = useNavigate();

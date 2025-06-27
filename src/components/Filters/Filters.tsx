@@ -2,28 +2,39 @@ import { useEffect, useState } from 'react';
 import css from './Filters.module.css';
 import sprite from '../../img/icons.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchCampers } from '../../redux/camper/operations.js';
-import { selectAllCampers } from '../../redux/camper/selectors.js';
-import { filterActions } from '../../redux/filter/slice.js';
+import { fetchCampers } from '../../redux/camper/operations';
+import { selectAllCampers } from '../../redux/camper/selectors';
+import { filterActions } from '../../redux/filter/slice';
 import {
   selectCity,
   selectEquipment,
   selectType,
-} from '../../redux/filter/selectors.js';
+} from '../../redux/filter/selectors';
+import { RootState, AppDispatch } from '../../redux/store';
+import { CamperData } from '../../types/camper';
+import { CamperFilters } from '../../types/filter';
 
-export default function Filters() {
-  const dispatch = useDispatch();
+interface FilterOption {
+  id: string;
+  label: string;
+  icon: string;
+}
 
-  const campers = useSelector(selectAllCampers);
-  const city = useSelector(selectCity);
-  const equipment = useSelector(selectEquipment);
-  const type = useSelector(selectType);
+interface FiltersProps {}
+
+export default function Filters({}: FiltersProps) {
+  const dispatch: AppDispatch = useDispatch();
+
+  const campers: CamperData[] = useSelector(selectAllCampers);
+  const city: string = useSelector(selectCity);
+  const equipment: string[] = useSelector(selectEquipment);
+  const type: string = useSelector(selectType);
 
   useEffect(() => {
     handleSearch();
-  }, []);
+  }, [dispatch, city, equipment, type]);
 
-  const equipmentOptions = [
+  const equipmentOptions: FilterOption[] = [
     { id: 'AC', label: 'AC', icon: 'icon-ac' },
     { id: 'automatic', label: 'Automatic', icon: 'icon-automatic' },
     { id: 'kitchen', label: 'Kitchen', icon: 'icon-kitchen' },
@@ -31,7 +42,7 @@ export default function Filters() {
     { id: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },
   ];
 
-  const typeOptions = [
+  const typeOptions: FilterOption[] = [
     { id: 'panelTruck', label: 'Van', icon: 'icon-van' },
     {
       id: 'fullyIntegrated',
@@ -41,11 +52,11 @@ export default function Filters() {
     { id: 'alcove', label: 'Alcove', icon: 'icon-alcove' },
   ];
 
-  const setCity = city => {
+  const setCity = (city: string) => {
     dispatch(filterActions.setLocation(city));
   };
 
-  const handleEquipmentClick = id => {
+  const handleEquipmentClick = (id: any) => {
     let updatedEquipment = [];
     if (equipment.includes(id)) {
       updatedEquipment = equipment.filter(item => item != id);
@@ -56,15 +67,24 @@ export default function Filters() {
     dispatch(filterActions.setEquipment(updatedEquipment));
   };
 
-  const handleTypeClick = id => {
+  const handleTypeClick = (id: any) => {
     dispatch(filterActions.setType(id));
   };
 
   const handleSearch = () => {
-    const filters = equipment.reduce((acc, item) => {
-      acc[item] = true;
+    const filters = equipment.reduce((acc: CamperFilters, item: string) => {
+      if (item === 'AC') acc.AC = true;
+      if (item === 'automatic') acc.automatic = true;
+      if (item === 'kitchen') acc.kitchen = true;
+      if (item === 'TV') acc.TV = true;
+      if (item === 'bathroom') acc.bathroom = true;
+      if (item === 'gas') acc.gas = true;
+      if (item === 'microwave') acc.microwave = true;
+      if (item === 'radio') acc.radio = true;
+      if (item === 'refrigerator') acc.refrigerator = true;
       return acc;
-    }, {});
+    }, {} as CamperFilters);
+
     if (city) {
       filters.location = city;
     }

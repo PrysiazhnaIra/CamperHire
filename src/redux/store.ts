@@ -1,7 +1,4 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { campersReducer } from './camper/slice.ts';
-import { filterReducer } from './filter/slice.ts';
-import { favoriteReducer } from './favorite/slice.ts';
 import {
   persistStore,
   persistReducer,
@@ -14,17 +11,32 @@ import {
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
+//import reducers
+import { campersReducer } from './camper/slice';
+import { filterReducer } from './filter/slice';
+import { favoriteReducer } from './favorite/slice';
+
+//import types for each reducer
+import { CamperState } from '../types/camper';
+import { FilterState } from '../types/filter';
+import { FavoriteState } from '../types/favorite';
+
 const persistConfig = {
   key: 'favorite',
   version: 1,
   storage,
 };
 
+const persistedFavoriteReducer = persistReducer<FavoriteState>(
+  persistConfig,
+  favoriteReducer
+);
+
 export const store = configureStore({
   reducer: {
     campers: campersReducer,
     filters: filterReducer,
-    favorite: persistReducer(persistConfig, favoriteReducer),
+    favorite: persistedFavoriteReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
@@ -33,5 +45,9 @@ export const store = configureStore({
       },
     }),
 });
+
+export type RootState = ReturnType<typeof store.getState>;
+
+export type AppDispatch = typeof store.dispatch;
 
 export const persistor = persistStore(store);

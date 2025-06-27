@@ -10,25 +10,6 @@ import FormCamperBook from '../FormCamperBook/FormCamperBook.js';
 import GoBackBtn from '../GoBackBtn/GoBackBtn.js';
 import css from './CamperDetails.module.css';
 
-interface CamperGalleryItem {
-  thumb?: string;
-}
-
-interface CamperReview {
-  reviewer_name: string;
-  reviewer_rating: number;
-  content: string;
-}
-
-interface CamperData {
-  id: string;
-  name: string;
-  price: number;
-  description: string;
-  gallery?: CamperGalleryItem[];
-  reviews?: CamperReview[];
-}
-
 export default function CamperDetails() {
   const { id } = useParams();
   const [camperData, setCamperData] = useState({});

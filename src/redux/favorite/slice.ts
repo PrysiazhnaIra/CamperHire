@@ -1,18 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { FavoriteState } from '../../types/favorite';
+import { CamperData } from '../../types/camper';
+
+const initialState: FavoriteState = {
+  favorites: [],
+};
 
 const favoriteSlice = createSlice({
   name: 'favoriteCampers',
-  initialState: {
-    favoriteItems: [],
-  },
+  initialState,
   reducers: {
-    toggleFavorite(state, action) {
-      if (state.favoriteItems.includes(action.payload)) {
-        state.favoriteItems = state.favoriteItems.filter(
+    toggleFavorite(
+      state,
+      action: PayloadAction<CamperData['id'] | CamperData>
+    ) {
+      if (state.favorites.includes(action.payload)) {
+        state.favorites = state.favorites.filter(
           item => item != action.payload
         );
       } else {
-        state.favoriteItems.push(action.payload);
+        state.favorites.push(action.payload);
       }
     },
   },

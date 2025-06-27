@@ -1,16 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { fetchCampers } from './operations.js';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { fetchCampers } from './operations';
+import { CamperState, CamperData } from '../../types/camper';
+
+const initialState: CamperState = {
+  items: [],
+  loading: false,
+  error: null,
+};
 
 const campersSlice = createSlice({
   name: 'campers',
-  initialState: {
-    items: [],
-    favoriteItems: [],
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
-    toggleFavorite(state, action) {
+    toggleFavorite(
+      state,
+      action: PayloadAction<CamperData['id'] | CamperData>
+    ) {
       if (state.favoriteItems.includes(action.payload)) {
         state.favoriteItems = state.favoriteItems.filter(
           item => item != action.payload
@@ -26,15 +31,21 @@ const campersSlice = createSlice({
         state.loading = true;
         state.error = null;
       })
-      .addCase(fetchCampers.fulfilled, (state, action) => {
-        state.loading = false;
-        state.items = action.payload;
-      })
-      .addCase(fetchCampers.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-        state.items = [];
-      });
+      .addCase(
+        fetchCampers.fulfilled,
+        (state, action: PayloadAction<CamperData[]>) => {
+          state.loading = false;
+          state.items = action.payload;
+        }
+      )
+      .addCase(
+        fetchCampers.rejected,
+        (state, action: PayloadAction<string | undefined>) => {
+          state.loading = false;
+          state.error = action.payload || 'Unknown error occurred';
+          state.items = [];
+        }
+      );
   },
 });
 
