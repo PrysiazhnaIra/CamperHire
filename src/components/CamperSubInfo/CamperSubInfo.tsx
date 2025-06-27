@@ -1,7 +1,15 @@
 import css from './CamperSubInfo.module.css';
 import sprite from '../../img/icons.svg';
 
-export default function CamperSubInfo({ item }) {
+interface CamperSubInfoProps {
+  item: {
+    rating: number;
+    reviews?: { id: string }[];
+    location: string;
+  };
+}
+
+export default function CamperSubInfo({ item }: CamperSubInfoProps) {
   if (!item) {
     return null;
   }

@@ -1,8 +1,14 @@
 import css from './CamperReviews.module.css';
 import sprite from '../../img/icons.svg';
 
-export default function CamperReviews({ reviews }) {
-  const renderStars = rating => {
+interface Review {
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+}
+
+export default function CamperReviews({ reviews }: { reviews: Review[] }) {
+  const renderStars = (rating: any) => {
     const roundedRating = Math.round(rating);
     const stars = [];
 
