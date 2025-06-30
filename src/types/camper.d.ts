@@ -7,6 +7,8 @@ interface CamperReview {
   reviewer_name: string;
   reviewer_rating: number;
   content: string;
+  comment: string;
+  id?: string;
 }
 
 export interface CamperData {

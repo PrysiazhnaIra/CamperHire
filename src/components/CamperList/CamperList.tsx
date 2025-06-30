@@ -7,7 +7,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 export default function CamperList() {
   const items = useSelector(selectAllCampers);
-  const [visibleCount, setVisibleCount] = useState(5);
+  const [visibleCount, setVisibleCount] = useState<number>(5);
 
   const handleMore = () => {
     if (visibleCount + 5 >= items.length) {
@@ -20,7 +20,7 @@ export default function CamperList() {
 
   return (
     <div>
-      <Toaster position="center" reverseOrder={false} />
+      <Toaster position="top-center" reverseOrder={false} />
       {items.length > 0 ? (
         <ul className={css.list}>
           {visibleItems.map(item => {

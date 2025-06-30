@@ -1,6 +1,6 @@
-import CamperList from '../CamperList/CamperList.js';
-import Filters from '../Filters/Filters.js';
-import Header from '../Header/Header.js';
+import CamperList from '../CamperList/CamperList';
+import Filters from '../Filters/Filters';
+import Header from '../Header/Header';
 import css from './Catalog.module.css';
 
 export default function Catalog() {

@@ -17,8 +17,6 @@ import { filterReducer } from './filter/slice';
 import { favoriteReducer } from './favorite/slice';
 
 //import types for each reducer
-import { CamperState } from '../types/camper';
-import { FilterState } from '../types/filter';
 import { FavoriteState } from '../types/favorite';
 
 const persistConfig = {

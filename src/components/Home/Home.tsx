@@ -1,5 +1,5 @@
-import Header from '../Header/Header.js';
-import Hero from '../Hero/Hero.js';
+import Header from '../Header/Header';
+import Hero from '../Hero/Hero';
 
 interface HomeProps {}
 

@@ -1,12 +1,30 @@
 import css from './EquipmentList.module.css';
 import sprite from '../../img/icons.svg';
+import { CamperData } from '../../types/camper';
 
-export default function EquipmentList({
-  item,
-}: {
-  item: Record<string, boolean>;
-}) {
-  const equipmentIcons = [
+interface EquipmentListProps {
+  item: CamperData;
+}
+
+type EquipmentBooleanKey =
+  | 'AC'
+  | 'bathroom'
+  | 'kitchen'
+  | 'TV'
+  | 'radio'
+  | 'refrigerator'
+  | 'microwave'
+  | 'gas'
+  | 'water';
+
+interface EquipmentIcon {
+  key: EquipmentBooleanKey;
+  label: string;
+  icon: string;
+}
+
+export default function EquipmentList({ item }: EquipmentListProps) {
+  const equipmentIcons: EquipmentIcon[] = [
     { key: 'AC', label: 'Air Conditioning', icon: 'icon-ac' },
     { key: 'bathroom', label: 'Bathroom', icon: 'icon-bathroom' },
     { key: 'kitchen', label: 'Kitchen', icon: 'icon-kitchen' },

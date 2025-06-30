@@ -53,6 +53,7 @@ reviews, and book campers directly through the website.
 ## Technologies Used
 
 - **Frontend Framework:** React (bundled with Vite).
+- **Language:** TypeScript (migrating from JavaScript)
 - **State Management:** Redux.
 - **Routing:** React Router.
 - **HTTP Requests:** Axios.
