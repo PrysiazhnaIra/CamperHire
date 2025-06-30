@@ -1,22 +1,18 @@
 import './App.css';
 import { Route, Routes } from 'react-router';
 import { lazy, Suspense } from 'react';
-import Loader from '../Loader/Loader.js';
+import Loader from '../Loader/Loader';
 
-const HomePage = lazy(() => import('../../pages/HomePage/HomePage.js'));
-const NotFoundPage = lazy(
-  () => import('../../pages/NotFoundPage/NotFoundPage.js')
-);
-const CatalogPage = lazy(
-  () => import('../../pages/CatalogPage/CatalogPage.js')
-);
+const HomePage = lazy(() => import('../../pages/HomePage/HomePage'));
+const CatalogPage = lazy(() => import('../../pages/CatalogPage/CatalogPage'));
 const CamperDetailsPage = lazy(
-  () => import('../../pages/CamperDetailsPage/CamperDetailsPage.js')
+  () => import('../../pages/CamperDetailsPage/CamperDetailsPage')
 );
-const CamperFeatures = lazy(
-  () => import('../CamperFeatures/CamperFeatures.js')
+const CamperFeatures = lazy(() => import('../CamperFeatures/CamperFeatures'));
+const CamperReviews = lazy(() => import('../CamperReviews/CamperReviews'));
+const NotFoundPage = lazy(
+  () => import('../../pages/NotFoundPage/NotFoundPage')
 );
-const CamperReviews = lazy(() => import('../CamperReviews/CamperReviews.js'));
 
 function App() {
   return (
@@ -24,10 +20,8 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/catalog" element={<CatalogPage />} />
-        <Route path="/catalog/:id" element={<CamperDetailsPage />}>
-          <Route path="features" element={<CamperFeatures />} />
-          <Route path="reviews" element={<CamperReviews />} />
-        </Route>
+        <Route path="/catalog/:id" element={<CamperDetailsPage />} />
+
         <Route path="/*" element={<NotFoundPage />} />
       </Routes>
     </Suspense>

@@ -10,9 +10,9 @@ import { favoriteActions } from '../../redux/favorite/slice';
 import { selectFavoriteCampers } from '../../redux/favorite/selectors';
 import { CamperData } from '../../types/camper';
 
-export default function CamperItem({ item }: any) {
-  const [isLoading, setIsLoading] = useState(true);
-  const [isError, setIsError] = useState(false);
+export default function CamperItem({ item }: { item: CamperData }) {
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [isError, setIsError] = useState<boolean>(false);
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const favoriteCampers = useSelector(selectFavoriteCampers);
@@ -56,7 +56,7 @@ export default function CamperItem({ item }: any) {
         <div className={css.titleBlock}>
           <h2 className={css.title}>{item.name}</h2>
           <div className={css.titleWrap}>
-            <h2 className={css.title}>€{item.price.toFixed(2)}</h2>
+            <h2 className={css.title}>€{(item.price ?? 0).toFixed(2)}</h2>
 
             <button
               onClick={() => handleFavoriteClick(item.id)}

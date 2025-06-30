@@ -1,6 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FavoriteState } from '../../types/favorite';
-import { string } from 'prop-types';
 
 const initialState: FavoriteState = {
   favorites: [],

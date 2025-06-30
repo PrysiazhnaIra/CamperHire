@@ -1,13 +1,12 @@
 import css from './CamperReviews.module.css';
 import sprite from '../../img/icons.svg';
+import { CamperReview } from '../../types/camper';
 
-interface Review {
-  reviewer_name: string;
-  reviewer_rating: number;
-  comment: string;
+interface CamperReviewsProps {
+  reviews?: CamperReview[];
 }
 
-export default function CamperReviews({ reviews }: { reviews: Review[] }) {
+export default function CamperReviews({ reviews }: CamperReviewsProps) {
   const renderStars = (rating: any) => {
     const roundedRating = Math.round(rating);
     const stars = [];
@@ -26,6 +25,10 @@ export default function CamperReviews({ reviews }: { reviews: Review[] }) {
     }
     return stars;
   };
+
+  if (!reviews || reviews.length === 0) {
+    return <p className={css.noReviews}>No reviews available</p>;
+  }
 
   return (
     <div className={css.reviewBlock}>

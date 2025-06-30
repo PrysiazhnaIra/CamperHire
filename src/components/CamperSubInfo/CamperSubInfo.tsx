@@ -1,12 +1,9 @@
 import css from './CamperSubInfo.module.css';
 import sprite from '../../img/icons.svg';
+import { CamperData } from '../../types/camper';
 
 interface CamperSubInfoProps {
-  item: {
-    rating: number;
-    reviews?: { id: string }[];
-    location: string;
-  };
+  item: CamperData;
 }
 
 export default function CamperSubInfo({ item }: CamperSubInfoProps) {
@@ -21,7 +18,7 @@ export default function CamperSubInfo({ item }: CamperSubInfoProps) {
           <use href={`${sprite}#icon-star`} />
         </svg>
         <p className={`${css.infoText} ${css.ratingReviews}`}>
-          {item.rating}({item.reviews?.length || 0} Reviews)
+          {item.rating ?? 0}({item.reviews?.length ?? 0} Reviews)
         </p>
       </div>
       <div className={css.info}>

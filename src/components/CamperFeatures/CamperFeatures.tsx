@@ -1,7 +1,12 @@
-import EquipmentList from '../EquipmentList/EquipmentList.js';
+import EquipmentList from '../EquipmentList/EquipmentList';
 import css from './CamperFeatures.module.css';
+import { CamperData } from '../../types/camper';
 
-export default function CamperFeatures({ item }) {
+interface CamperFeaturesProps {
+  item: CamperData;
+}
+
+export default function CamperFeatures({ item }: CamperFeaturesProps) {
   return (
     <div className={css.featuresBlock}>
       <EquipmentList item={item} />
